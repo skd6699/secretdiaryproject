@@ -10,20 +10,8 @@ elseif(($_SESSION['id'] AND array_key_exists("id",$_SESSION)) OR (array_key_exis
     header("Location: loggedinpage.php");
 }
 if(array_key_exists("submit",$_POST)){
-   
-    $servername = getenv('IP');
-    $username = getenv('C9_USER');
-    $password = "";
-    $database = "diary";
-    $dbport = 3306;
-    // Create connection
-    $db = new mysqli($servername, $username, $password, $database, $dbport);
-
-    // Check connection
-    if ($db->connect_error) {
-        die("Connection failed: " . $db->connect_error);
-    } 
-   // echo "Connected successfully (".$db->host_info.")";
+   include("connection.php");
+    // echo "Connected successfully (".$db->host_info.")";
    
    
     
